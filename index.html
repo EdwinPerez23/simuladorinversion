@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Edwin Pérez">
+    <meta name="keywords" content="Simulador, inversión, cotizador, interés, plazo, días, retención">
+    <meta name="description" content="Página para simular y personalizar tu dinero, tiempo y porcentaje en una inversión">
+    <meta name="application-name" content="Simulador inversión">
+    <meta name="generator" content="VSCode">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#e44f25">
+    <title>Simulador Inversión | Edwin Pérez</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <header class="header-container">
+        <img src="img/Logo EP.png" class="imagen" alt="Logo de Edwin Pérez">
+        <h1>SIMULADOR INVERSIÓN</h1>
+        <img src="img/Logo EP.png" class="imagen" alt="Logo de Edwin Pérez">
+    </header>
+
+    <main class="datos-entrada">
+        <label for="capital" class="capital-invertido">Capital invertido:</label>
+        <input type="number" class="entrada-input" id="capital" oninput="validarDecimal(this)">
+
+        <label for="tasa" class="tasa-interes">Tasa de interés:</label>
+        <input type="number" class="entrada-input" id="tasa" oninput="validarDecimal(this)">
+
+        <label for="plazo" class="plazo-inversion">Plazo de inversión en días:</label>
+        <input type="number" class="entrada-input" id="plazo" min="1" step="1" oninput="validarEntero(this)">
+            
+        <label for="frecuencia" class="frecuencia-pago">Frecuencia de pago:</label>
+        <select name="frecuencia-pago" class="entrada-input" id="frecuencia">
+            <option class="opcionFP" value="vacio" disabled selected>Selecciona una opción:</option>
+            <option class="opcionFP" value="mensual">Mensual</option>
+            <option class="opcionFP" value="trimestral">Trimestral</option>
+            <option class="opcionFP" value="semestral">Semestral</option>
+            <option class="opcionFP" value="anual">Anual</option>
+            <option class="opcionFP" value="vencimiento">Al vencimiento</option>
+        </select>
+
+    </main>
+
+    <section class="datos-salida">
+        <h2>Detalle inversión:</h2>
+        <h3 id="resultado-capital">Capital: <span>$ 0</span></h3>
+        <h3 id="resultado-interes">Interés: <span>$ 0</span></h3>
+        <h3 id="resultado-retencion">Retención: <span>$ 0</span></h3>
+        <h3 id="resultado-total" class="resultado-total">TOTAL A RECIBIR: <span class="span-resultado-total">$ 0</span></h3>
+        <section class="botones">
+            <button class="boton" id="botonCalcular" type="button" onclick="calcular()">CALCULAR</button>
+            <button class="boton" id="botonLimpiar" type="button" onclick="limpiar()">LIMPIAR</button>
+        </section>
+    </section>
+
+    <section class="tabla-inversion" id="tabla">
+        <h2 class="titulo-tabla-inversion">TABLA INVERSIÓN:</h2>
+        <table id="tabla-dinamica">
+            <thead>
+                <tr>
+                    <th>Cuota</th>
+                    <th>Número días</th>
+                    <th>Interés</th>
+                    <th>Retención</th>
+                    <th>A recibir</th>
+                </tr>
+            </thead>
+
+            <!-- Aquí se agregarán las filas dinámicamente -->
+            <tbody id="tabla-body">
+                
+            </tbody>
+
+        </table>
+
+    </section>   
+
+    <footer class="footer-container">
+        <div>Realizado por Edwin Pérez</div>
+    </footer>
+
+    <script src="js/validaciones.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
