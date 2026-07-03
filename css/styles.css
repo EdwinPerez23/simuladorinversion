@@ -21,7 +21,7 @@
 /* GRID TODO EL CONTENIDO */
 body
 {
-    width: 100%;
+    width: 100vw;
     min-height: 100vh;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
